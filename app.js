@@ -9,7 +9,7 @@ const app = express();
 // MIDDLEWARE
 app.use(cors());
 app.use(express.json());
-// Bookclub ROUTES
+// Book ROUTES
 app.use("/books", booksController);
 
 // ROUTES

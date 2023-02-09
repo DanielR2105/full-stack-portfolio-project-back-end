@@ -27,7 +27,7 @@ books.get("/", async (req, res) => {
 books.get("/:id", async (req, res) => {
   const { id } = req.params;
   const book = await getBook(id);
-  console.log("book", book);
+  console.log("book");
   if (!book.message) {
     res.status(200).json(book);
   } else {

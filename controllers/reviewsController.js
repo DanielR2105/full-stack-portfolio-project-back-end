@@ -21,7 +21,6 @@ reviews.get("/", async (req, res) => {
 
 // SHOW
 reviews.get("/:id", async (req, res) => {
-  console.log(`Hit books/${id}/reviews for reviews`);
   const { id } = req.params;
   const review = await getReview(id);
   if (!review.message) {

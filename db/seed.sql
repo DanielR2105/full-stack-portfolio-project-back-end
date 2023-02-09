@@ -1,7 +1,7 @@
 \c bookclubs_dev;
 
 INSERT INTO books (title, author, page_count, image, average_rating) VALUES
-('Salem`s Lot', 'Stephen King', 674, 'http://books.google.com/books/content?id=4ASPDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api', 4),
+("Salem's Lot", 'Stephen King', 674, 'http://books.google.com/books/content?id=4ASPDQAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api', 4),
 ('Red Sister', 'Mark Lawrence', 498, 'http://books.google.com/books/content?id=yKZJDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api', 4);
 
 INSERT INTO reviews (book_id, reviewer, title, content, rating) VALUES

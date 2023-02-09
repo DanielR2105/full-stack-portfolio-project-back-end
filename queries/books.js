@@ -4,6 +4,7 @@ const getAllBooks = async () => {
   console.log("hit getAll books");
   try {
     const allBooks = await db.any("SELECT * FROM books");
+    console.log("Executing query:");
     return allBooks;
   } catch (error) {
     console.log("db error", error);
@@ -56,7 +57,7 @@ const deleteBook = async (id) => {
 const updateBook = async (id, book) => {
   try {
     const updatedBook = await db.one(
-      "UPDATE books SET title=$1, author=$2, page_count=$3, image=$4 average_rating=$5 WHERE id=$6 RETURNING *",
+      "UPDATE books SET title=$1, author=$2, page_count=$3, image=$4, average_rating=$5 WHERE id=$6 RETURNING *",
       [
         book.title,
         book.author,
