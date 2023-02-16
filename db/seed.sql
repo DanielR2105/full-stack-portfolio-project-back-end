@@ -13,8 +13,7 @@ INSERT INTO bookclubs (name, description, goal, location, meeting_time) VALUES
 ('Pursuit Reads', 'A club for fellow book lovers from pursuit', 'Read the first 3 chapters of Salems Lot', 'zoom', '2:30');
 
 INSERT INTO bookclub_books(bookclub_id, book_id) VALUES
-(1, 1),
-(1, 2);
+(1, 1);
 
 INSERT INTO users(name, favorite_book, age, favorite_genre, firebase_id) VALUES 
 ('Daniel', 'bob', 3, 'bob', '100'),

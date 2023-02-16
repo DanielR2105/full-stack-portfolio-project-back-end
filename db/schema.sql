@@ -3,6 +3,8 @@ CREATE DATABASE bookclubs_dev;
 
 \c bookclubs_dev;
 
+DROP TABLE IF EXISTS books CASCADE;
+
 CREATE TABLE books (
  id SERIAL PRIMARY KEY,
  title TEXT NOT NULL,
@@ -25,6 +27,8 @@ CREATE TABLE reviews (
  ON DELETE CASCADE
 );
 
+DROP TABLE IF EXISTS users CASCADE;
+
 CREATE TABLE users (
     id SERIAL PRIMARY KEY,
     name TEXT,
@@ -33,6 +37,8 @@ CREATE TABLE users (
     favorite_genre TEXT,
     firebase_id TEXT
 );
+
+DROP TABLE IF EXISTS bookclubs CASCADE;
 
 CREATE TABLE bookclubs (
     id SERIAL PRIMARY KEY,
@@ -43,21 +49,20 @@ CREATE TABLE bookclubs (
     meeting_time TEXT
 );
 
+DROP TABLE IF EXISTS bookclub_users;
+
 CREATE TABLE bookclub_users (
   bookclub_id INT NOT NULL,
   user_id INT NOT NULL,
-  PRIMARY KEY (bookclub_id, user_id),
-  FOREIGN KEY (bookclub_id) REFERENCES bookclubs(id)
-  ON DELETE CASCADE,
-  FOREIGN KEY (user_id) REFERENCES users(id)
+  bookclub_id2 INTEGER REFERENCES bookclubs(id) ON DELETE CASCADE,
+  user_id2 INTEGER REFERENCES users(id)
 );
+
+DROP TABLE IF EXISTS bookclub_books;
 
 CREATE TABLE bookclub_books (
     bookclub_id INT NOT NULL,
     book_id INT NOT NULL,
-    PRIMARY KEY (bookclub_id, book_id),
-    FOREIGN KEY (bookclub_id) REFERENCES bookclubs(id)
-    ON DELETE CASCADE,
-    FOREIGN KEY (book_id) REFERENCES books(id)
-    ON DELETE CASCADE
-)
+    bookclub_id2 INTEGER REFERENCES bookclubs (id) ON DELETE CASCADE,
+    book_id2 INTEGER REFERENCES books (id) ON DELETE CASCADE
+);
