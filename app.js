@@ -2,6 +2,8 @@
 const cors = require("cors");
 const express = require("express");
 const booksController = require("./controllers/booksController.js");
+const usersController = require("./controllers/usersController.js");
+const bookclubsController = require("./controllers/bookclubsController");
 
 // CONFIGURATION
 const app = express();
@@ -11,6 +13,8 @@ app.use(cors());
 app.use(express.json());
 // Book ROUTES
 app.use("/books", booksController);
+app.use("/users", usersController);
+app.use("/bookclubs", bookclubsController);
 
 // ROUTES
 app.get("/", (req, res) => {

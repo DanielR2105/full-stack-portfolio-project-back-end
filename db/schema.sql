@@ -24,3 +24,40 @@ CREATE TABLE reviews (
  book_id INTEGER REFERENCES books (id)
  ON DELETE CASCADE
 );
+
+CREATE TABLE users (
+    id SERIAL PRIMARY KEY,
+    name TEXT,
+    favorite_book TEXT,
+    age INT,
+    favorite_genre TEXT,
+    firebase_id TEXT
+);
+
+CREATE TABLE bookclubs (
+    id SERIAL PRIMARY KEY,
+    name TEXT NOT NULL,
+    description TEXT,
+    goal TEXT,
+    location TEXT,
+    meeting_time TEXT
+);
+
+CREATE TABLE bookclub_users (
+  bookclub_id INT NOT NULL,
+  user_id INT NOT NULL,
+  PRIMARY KEY (bookclub_id, user_id),
+  FOREIGN KEY (bookclub_id) REFERENCES bookclubs(id)
+  ON DELETE CASCADE,
+  FOREIGN KEY (user_id) REFERENCES users(id)
+);
+
+CREATE TABLE bookclub_books (
+    bookclub_id INT NOT NULL,
+    book_id INT NOT NULL,
+    PRIMARY KEY (bookclub_id, book_id),
+    FOREIGN KEY (bookclub_id) REFERENCES bookclubs(id)
+    ON DELETE CASCADE,
+    FOREIGN KEY (book_id) REFERENCES books(id)
+    ON DELETE CASCADE
+)
