@@ -64,5 +64,6 @@ CREATE TABLE bookclub_books (
     bookclub_id INT NOT NULL,
     book_id INT NOT NULL,
     bookclub_id2 INTEGER REFERENCES bookclubs (id) ON DELETE CASCADE,
-    book_id2 INTEGER REFERENCES books (id) ON DELETE CASCADE
+    book_id2 INTEGER REFERENCES books (id),
+    CONSTRAINT unique_bookclub_id UNIQUE (bookclub_id)
 );

@@ -20,16 +20,6 @@ bookclubUsers.get("/", async (req, res) => {
   }
 });
 
-// bookclubUsers.get("/", async (req, res) => {
-//   const { userId } = req.params;
-//   try {
-//     const allBookclubUsers = await getAllBookclubUsersbyUserId(userId);
-//     res.status(200).json(allBookclubUsers);
-//   } catch (error) {
-//     res.status(500).json({ error: "Internal Server Error" });
-//   }
-// });
-
 bookclubUsers.get("/:id", async (req, res) => {
   const { id } = req.params;
   const bookclubUser = await getBookclubUser(id);
@@ -59,16 +49,5 @@ bookclubUsers.delete("/:id", async (req, res) => {
     res.status(404).json({ error: "Id not found" });
   }
 });
-
-// Dont think I need update since you can only leave or join a bookclub/ could just use update user instead
-// bookclubUsers.put("/:id", async (req, res) => {
-//   try {
-//     const { id } = req.params;
-//     const updatedBookclubUser = await updateBookclubUser(id, req.body);
-//     res.status(200).json(updatedBookclubUser);
-//   } catch (error) {
-//     res.status(404).json({ error: "Bookclub User not found!" });
-//   }
-// });
 
 module.exports = bookclubUsers;

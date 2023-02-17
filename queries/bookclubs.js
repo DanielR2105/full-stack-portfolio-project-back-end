@@ -39,7 +39,7 @@ const createBookclub = async (bookclub) => {
 const deleteBookclub = async (id) => {
   try {
     const deletedBookclub = await db.one(
-      "DELETE FROM bookmarks WHERE id=$1 RETURNING *",
+      "DELETE FROM bookclubs WHERE id=$1 RETURNING *",
       id
     );
     return deletedBookclub;

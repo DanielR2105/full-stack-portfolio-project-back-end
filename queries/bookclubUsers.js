@@ -1,18 +1,5 @@
 const db = require("../db/dbConfig");
 
-// Want to get all users in this bookclub
-// const getAllBookclubUsers = async (bookclub_id) => {
-//   try {
-//     const allBookclubUsers = await db.any(
-//       "SELECT * FROM bookclub_users WHERE bookclub_id=$1",
-//       bookclub_id
-//     );
-//     console.log(allBookclubUsers);
-//     return allBookclubUsers;
-//   } catch (error) {
-//     return error;
-//   }
-// };
 const getAllBookclubUsers = async (bookclub_id) => {
   try {
     const users = await db.any(

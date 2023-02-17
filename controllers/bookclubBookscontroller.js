@@ -1,6 +1,7 @@
 const express = require("express");
 const bookclubBooks = express.Router({ mergeParams: true });
 const {
+  getBookclubBook,
   deleteBookclubBook,
   createBookclubBook,
 } = require("../queries/bookclubBooks");
@@ -17,7 +18,6 @@ bookclubBooks.post("/", async (req, res) => {
 
 bookclubBooks.delete("/:id", async (req, res) => {
   try {
-    console.log("hit delete");
     const { id } = req.params;
     const deletedBookclubBook = await deleteBookclubBook(id);
     res.status(200).json(deletedBookclubBook);

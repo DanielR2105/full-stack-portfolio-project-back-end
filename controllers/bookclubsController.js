@@ -48,6 +48,7 @@ bookclubs.delete("/:id", async (req, res) => {
     const { id } = req.params;
     const deletedBookclub = await deleteBookclub(id);
     res.status(200).json(deletedBookclub);
+    return deletedBookclub;
   } catch (error) {
     res.status(404).json({ error: "bookclub not found" });
   }
